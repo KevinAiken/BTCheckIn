@@ -6,9 +6,10 @@ sidebar {
   background-color: grey;
   width: 250px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 3; }
   sidebar li {
@@ -17,6 +18,8 @@ sidebar {
       text-decoration: none;
       color: white;
       font-size: 20px; }
+    sidebar li:hover {
+      color: #cccccc; }
 
 #card-container {
   float: right;
@@ -41,22 +44,29 @@ sidebar {
   margin: 0 auto;
   margin-bottom: 10px;
   margin-left: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: 0.6s; }
-  .card .img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .card img {
+    width: 300px;
     z-index: 5;
     float: left;
     transition: 0.6s; }
-    .card .img:hover {
+    .card img:hover {
       transform: translateX(100%); }
-  .card img {
-    width: 300px; }
   .card .info {
     position: relative;
-    top: 38%; }
+    top: 60px;
+    z-index: -1; }
   .card .name {
-    font-size: 18px; }
-  .card .inOut {
-    font-size: 16px; }
+    font-size: 18px;
+    z-index: -1; }
+  .card .inIn {
+    font-size: 16px;
+    z-index: -1; }
+  .card .lastIn {
+    font-size: 16px;
+    z-index: -1;
+    position: relative;
+    bottom: -150px;
+    left: -300px; }
 
 /*# sourceMappingURL=main.css.map */
