@@ -23,7 +23,6 @@ while True:
         #try:
         print "Checking " + time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
         result = bluetooth.lookup_name(str(row[0]), timeout=3)
-        print result
         try:
             timeStamp = "%s-%s-%s %s:%s:%s" % (str(now.year),str(now.month),str(now.day),str(now.hour - 3),str(now.minute),str(now.second))
             cursor.execute("SELECT status FROM userstatus WHERE phoneID=%r" % (row[0]))
@@ -31,11 +30,8 @@ while True:
             print statusOfPerson
             if (result != None and statusOfPerson[0] == 0):
                 print str(row[1])+ ": in"
-                print statusOfPerson[0]
                 overwrite = "UPDATE usersdat SET timeEntered=\"%s\" WHERE phoneID=\"%s\"" % (timeStamp, row[0])
                 homeStatus = "UPDATE userstatus SET status=\"%s\" WHERE phoneID=\"%s\"" % (1, row[0])
-                # print overwrite
-                # print homeStatus
                 cursor.execute(overwrite)
                 cursor.execute(homeStatus)
                 db.commit()
@@ -51,12 +47,4 @@ while True:
         except:
             print("ERROR")
 
-                # send notification to server that I'm in
-
-                         # send notification to server that I'm out
-
-            # except:
-                #      print("Errrroooooooeeer")
-                #      break
-
-    time.sleep(5) # change to every few minutes for final
+    time.sleep(1) # change to every few minutes for final
