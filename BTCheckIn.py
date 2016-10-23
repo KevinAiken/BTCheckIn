@@ -59,4 +59,4 @@ while True:
                 #      print("Errrroooooooeeer")
                 #      break
 
-    time.sleep(5) # change to every few minutes for final
+    time.sleep(1) # change to every few minutes for final
