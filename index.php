@@ -7,13 +7,13 @@
     <meta charset="utf-8">
     <title>Employee Clockin</title>
     <link  type="text/css" rel=stylesheet href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
 <body>
     <sidebar>
         <ul>
-            <li>Admin</li>
-	    <li><a href="http://github.com/KevinAiken/BTCheckIn">Github</a></li>
+            <li><a href="http://github.com/KevinAiken/BTCheckIn">Github</a></li>
         </ul>
     </sidebar>
 
