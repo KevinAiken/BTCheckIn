@@ -1,45 +1,62 @@
-# import bluetooth
+import bluetooth
 import time
 import os.path
 import MySQLdb
-print "In/Out Board"
+import datetime
+
 
 home = False
 
 db = MySQLdb.connect("localhost","monitor","MichaelChung1!", "users")
 cursor = db.cursor()
-query = "SELECT * FROM usersdat"
-
-cursor.execute(query)
-
-results = cursor.fetchall()
-
-
-print 'leo'
-for row in results:
-    print row
-
+usersdat = "SELECT * FROM usersdat"
+userstatus = "SELECT * FROM userstatus"
 while True:
-    if((os.path.isfile(users.txt)) == False):
-        file = open('users.txt', rw)
-    while True:
+    cursor.execute(usersdat)
+    results = cursor.fetchall()
+    cursor.execute(userstatus)
+    status = cursor.fetchall()
+
+    now = datetime.datetime.now()
+    print now
+    for row in status:
+        #try:
+        print "Checking " + time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
+        result = bluetooth.lookup_name(str(row[0]), timeout=3)
+        print result
         try:
-            currentID = file.readline()
-            print "Checking " + time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
-            result = bluetooth.lookup_name(currentID, timeout=5)
-            if (result != None):
-                print "Kevin: in"
-                if(home == False):
-                    home = True
-                    # send notification to server that aI'm in
-                else:
-                    print "Kevin: out"
-                if(home):
-                    home = False
-                    # send notification to server that I'm out
+            timeStamp = "%s-%s-%s %s:%s:%s" % (str(now.year),str(now.month),str(now.day),str(now.hour - 3),str(now.minute),str(now.second))
+            cursor.execute("SELECT status FROM userstatus WHERE phoneID=%r" % (row[0]))
+            statusOfPerson = cursor.fetchone()
+            print statusOfPerson
+            if (result != None and statusOfPerson[0] == 0):
+                print str(row[1])+ ": in"
+                print statusOfPerson[0]
+                overwrite = "UPDATE usersdat SET timeEntered=\"%s\" WHERE phoneID=\"%s\"" % (timeStamp, row[0])
+                homeStatus = "UPDATE userstatus SET status=\"%s\" WHERE phoneID=\"%s\"" % (1, row[0])
+                # print overwrite
+                # print homeStatus
+                cursor.execute(overwrite)
+                cursor.execute(homeStatus)
+                db.commit()
+            if(result == None and statusOfPerson[0] == 1):
+                print str(row[1]) + ": out"
+                overwrite = "UPDATE usersdat SET timeLeft=\"%s\" WHERE phoneID=\"%s\"" % (timeStamp, row[0])
+                homeStatus = "UPDATE userstatus SET status=\"%s\" WHERE phoneID=\"%s\"" % (0, row[0])
+                cursor.execute(overwrite)
+                cursor.execute(homeStatus)
+                db.commit()
+
 
         except:
-            print("Errrroooooooeeer")
-            break
+            print("ERROR")
 
-time.sleep(10) # change to every few minutes for final
+                # send notification to server that I'm in
+
+                         # send notification to server that I'm out
+
+            # except:
+                #      print("Errrroooooooeeer")
+                #      break
+
+    time.sleep(5) # change to every few minutes for final
