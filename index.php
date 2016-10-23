@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <script src="js/jquery-3.1.1.min.js"</script>
+    <script src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
 
 <head>
     <meta charset="utf-8">
-    <title>Employee Checkin</title>
+    <title>Employee Clockin</title>
     <link  type="text/css" rel=stylesheet href="css/main.css">
 </head>
 
 <body>
     <sidebar>
         <ul>
-            <li><a href="http://github.com/KevinAiken/BTCheckIn">Github</a></li>
+            <li>Admin</li>
+	    <li><a href="http://github.com/KevinAiken/BTCheckIn">Github</a></li>
         </ul>
     </sidebar>
 
@@ -39,7 +40,6 @@
 
 <script src="js/cards.js"></script>
 
-<script>
 <?php
 $servername = 'localhost';
 $username = 'monitor';
@@ -59,15 +59,21 @@ if(!$retval){
 }
 
 $cards = "";
+$name = "";
+$status = "";
 
-while($row = mysql_fetch_assoc($retval)){
-	cards += 'card(\"res/{$row['name']}.png\", \"' + {$row['name']} + '\", \" + {row['status']} + '\");<br>';
+while($row = mysql_fetch_assoc($retval)) {
+	$name = $row['name'];
+	$status = $row['status'];
+
+	$cards .= 'card("res/' . $name . '.png","' . $name . '", "' . $status . '");';
 }
 
-echo $cards;
+echo '<script type="text/javascript">',
+	$cards,
+	'</script>';
 
 mysql_close($conn);
 ?>
-</script>
     
 </html>

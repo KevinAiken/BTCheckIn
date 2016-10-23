@@ -47,6 +47,7 @@ sidebar {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   .card img {
     width: 300px;
+    height: 300px;
     z-index: 5;
     float: left;
     transition: 0.6s; }
@@ -59,14 +60,8 @@ sidebar {
   .card .name {
     font-size: 18px;
     z-index: -1; }
-  .card .inIn {
-    font-size: 16px;
-    z-index: -1; }
-  .card .lastIn {
-    font-size: 16px;
-    z-index: -1;
-    position: relative;
-    bottom: -150px;
-    left: -300px; }
+
+.darken {
+  filter: brightness(50%); }
 
 /*# sourceMappingURL=main.css.map */
