@@ -13,4 +13,6 @@ Automatically detects when users come and go from an office environment. Develop
 
 # Sample Website Portal Images
 ![Sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/noEmployeesIn.png)
+
+
 ![Another sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/oneEmployeeIn.png)
