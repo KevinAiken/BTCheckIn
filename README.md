@@ -14,9 +14,8 @@ Automatically detects when users come and go from an office environment. Develop
 # Sample Web Portal Images
 ![Sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/sampImage2.png)
 * This is with no employees currently present.
-
-
-
+<br>
+<br>
 
 ![Another sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/sampImage1.png)
 * This is with one employee, Nishant, present. Whether or not the employee is present is pulled directly from the MySQL database.
