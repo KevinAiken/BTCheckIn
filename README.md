@@ -1,5 +1,5 @@
 # BTCheckIn
-Automatically detects when users come and go from an office environment
+Automatically detects when users come and go from an office environment. Developed for hackGSU.
 
 # How It Works
 
@@ -9,4 +9,8 @@ Automatically detects when users come and go from an office environment
 
 # Hardware
 
-* Hardware consists of a Raspberry Pi with a USB Bluetooth dongle connected to a local network.
+* Hardware consists of a Raspberry Pi with a USB Bluetooth dongle connected to a local network. 
+
+# Sample Website Portal Images
+![alt tag](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/path/noEmployeesIn.png)
+![alt tag](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/path/oneEmployeeIn.png)
