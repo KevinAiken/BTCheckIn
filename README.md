@@ -11,8 +11,9 @@ Automatically detects when users come and go from an office environment. Develop
 
 * Hardware consists of a Raspberry Pi with a USB Bluetooth dongle connected to a local network. 
 
-# Sample Website Portal Images
+# Sample Web Portal Images
 ![Sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/noEmployeesIn.png)
-
+* This is with no employees currently present.
 
 ![Another sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/oneEmployeeIn.png)
+* This is with one employee, Nishant, present. Whether or not the employee is present is pulled directly from the MySQL database.
