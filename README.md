@@ -12,5 +12,5 @@ Automatically detects when users come and go from an office environment. Develop
 * Hardware consists of a Raspberry Pi with a USB Bluetooth dongle connected to a local network. 
 
 # Sample Website Portal Images
-![alt tag](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/path/noEmployeesIn.png)
-![alt tag](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/path/oneEmployeeIn.png)
+![Sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/noEmployeesIn.png)
+![Another sample image of website](https://raw.githubusercontent.com/KevinAiken/BTCheckIn/master/oneEmployeeIn.png)
